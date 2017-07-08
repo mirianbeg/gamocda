@@ -97,8 +97,9 @@ class CategoryController extends Controller
                         ->withErrors($validator)
                         ->withInput();
         }
-
-        $category = Category ::create($request->all());
+        $category = Category::findOrFail($id);
+         $category->fill($request->all());
+         $category->save();
 
         return redirect()->route('categories.show', $category->id);
     }
