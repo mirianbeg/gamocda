@@ -12,10 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin');
+});
+Route::get('/home', function () {
+    return view('admin');
 });
 
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index');
 Route::get('/admin', 'HomeController@index');
+Route::resource('categories', 'CategoryController');
