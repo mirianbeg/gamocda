@@ -1,39 +1,63 @@
-<form  action="{{route('programs.update', $program->id)}}" method="post">
+<form  action="{{route('notices.update',  $notice->id)}}" method="post">
 	{{csrf_field()}}
-	 <input type="hidden" name="_method" value="PUT">
-	<p>
-	Name:
-	{{ $errors->first('name') }}
-		<input type="text" name="name" value="{{ ($program->name)  }}">
-	</p>
-		
+ <input type="hidden" name="_method" value="PUT">
 
 	<p>
-	Faculty:
-	{{ $errors->first('faculty_id') }}
+	Title:
+	{{ $errors->first('title') }}
+		<input type="text" name="title" value="{{$notice->title }}">
+	</p>
+	<p>
+	Category:
+	{{ $errors->first('category_id') }}
 	
-	<select name="{{'faculty_id'}}">
-	@foreach($faculties as $faculty)
-		<option value="{{$faculty->id}}"
-		@if ($program->faculty_id==$faculty->id)
+	<select name="{{'category_id'}}">
+	@foreach($categories as $category)
+		<option value="{{$category->id}}"
+		@if (old('category_id')==$category->id)
 		selected
 		@endif;
 		>
-		{{$faculty->name}}
+		{{$category->name}}
 		</option>
 	@endforeach
 	</select>
 	</p>
 	<p>
-	Mandatory credits:
-	{{ $errors->first('mandatory_credits') }}
-		<input type="number" name="mandatory_credits" value="{{$program->mandatory_credits  }}">
+	Photos:
+	{{ $errors->first('photos') }}
+		<input type="text" name="photos" value="{{$notice->photos  }}">
+	</p>
+	<p>
+	Description:
+	{{ $errors->first('description') }}
+		<input type="text" name="description" value="{{ $notice->description }}">
 	</p>
 
 	<p>
-	Optional credits:
-	{{ $errors->first('optional_credits') }}
-		<input type="number" name="optional_credits" value="{{$program->optional_credits }}">
+	Count:
+	{{ $errors->first('count') }}
+		<input type="number" name="count" value="{{$notice->count  }}">
 	</p>
+	<p>
+	Author name:
+	{{ $errors->first('author_name') }}
+		<input type="text" name="author_name" value="{{$notice->author_name  }}">
+	</p>
+	<p>
+	Author Email:
+	{{ $errors->first('author_email') }}
+		<input type="text" name="author_email" value="{{$notice->author_email  }}">
+	</p>
+	<p>
+	Status:
+	<select name="status">
+  <option value="active">active</option>
+  <option value="passive">passive</option>
+  
+    </select>
+	
+	</p>
+
 		<button type="submit" name="">save</button>
 </form>

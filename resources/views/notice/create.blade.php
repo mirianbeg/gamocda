@@ -49,8 +49,12 @@
 	</p>
 	<p>
 	Status:
-	{{ $errors->first('status') }}
-		<input type="text" name="status" value="{{old('status')  }}">
+	<select name="status">
+  <option value="active">active</option>
+  <option value="passive">passive</option>
+  
+    </select>
+	
 	</p>
 
 		<button type="submit" name="">save</button>
