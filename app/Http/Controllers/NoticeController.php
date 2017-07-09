@@ -82,8 +82,7 @@ class NoticeController extends Controller
     {   
         $categories = Category::all();
          $notice = Notice::findOrFail($id);
-        return view('notice.edit')
-        ->with('notice', $notice)
+        return view('notice.edit')->with('notice', $notice)
         ->with('categories', $categories);
     }
 

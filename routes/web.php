@@ -1,4 +1,6 @@
 <?php
+use App\Models\Notice;
+use App\Models\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -11,16 +13,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('admin');
-});
-Route::get('/home', function () {
-    return view('admin');
-});
+Route::get('/', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
 
 Auth::routes();
-
-//Route::get('/home', 'HomeController@index');
 Route::get('/admin', 'HomeController@index');
 Route::resource('categories', 'CategoryController');
 Route::resource('notices', 'NoticeController');
