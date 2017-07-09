@@ -23,3 +23,4 @@ Auth::routes();
 //Route::get('/home', 'HomeController@index');
 Route::get('/admin', 'HomeController@index');
 Route::resource('categories', 'CategoryController');
+Route::resource('notices', 'NoticeController');
